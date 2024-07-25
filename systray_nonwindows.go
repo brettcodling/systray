@@ -87,6 +87,12 @@ func showMenuItem(item *MenuItem) {
 	)
 }
 
+func removeMenuItem(item *MenuItem) {
+	C.destroy_menu_item(
+		C.int(item.id),
+	)
+}
+
 //export systray_ready
 func systray_ready() {
 	systrayReady()

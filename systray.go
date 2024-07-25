@@ -195,6 +195,14 @@ func (item *MenuItem) Show() {
 	showMenuItem(item)
 }
 
+// Removes a menu item
+func (item *MenuItem) Remove() {
+	removeMenuItem(item)
+	menuItemsLock.Lock()
+	delete(menuItems, item.id)
+	menuItemsLock.Unlock()
+}
+
 // Checked returns if the menu item has a check mark
 func (item *MenuItem) Checked() bool {
 	return item.checked
